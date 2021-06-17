@@ -1,0 +1,34 @@
+[
+  {
+    "bookingId": "1iv3rp3y1u8v8",
+    "bookingPassenger": {
+      "origin": "Chaco",
+      "originAddress": "Buenos aires",
+      "history": [],
+      "name": "Mercedez",
+      "lastName": "Sosa",
+      "dni": "1256324",
+      "email": "mercedita@gmail.com",
+      "user": "merced",
+      "password": "123",
+      "phoneNumber": 52363648
+    },
+    "bookedRoom": {
+      "isAvailable": true,
+      "roomNumber": 303,
+      "roomType": "QUAD"
+    },
+    "bookingState": "PENDING",
+    "checkInDate": {
+      "year": 2020,
+      "month": 8,
+      "day": 4
+    },
+    "checkOutDate": {
+      "year": 2020,
+      "month": 8,
+      "day": 9
+    },
+    "spentMoney": 325.0
+  }
+]

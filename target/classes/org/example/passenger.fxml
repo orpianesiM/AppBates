@@ -3,7 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -68,13 +71,8 @@
             </HBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="panelBooking" layoutY="107.0" prefHeight="331.0" prefWidth="541.0" style="-fx-background-color: #292e2a;">
+      <AnchorPane fx:id="panelBooking" layoutY="107.0" prefHeight="331.0" prefWidth="541.0" style="-fx-background-color: #292e2a;" visible="false">
          <children>
-            <TextField fx:id="txtCheckOut" layoutX="271.0" layoutY="173.0" promptText="Ingrese día de salida" style="-fx-background-color: #735e01;">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </TextField>
             <TextField fx:id="txtDni" layoutX="271.0" layoutY="219.0" promptText="Ingrese su DNI" style="-fx-background-color: #735e01;">
                <font>
                   <Font name="System Italic" size="14.0" />
@@ -87,7 +85,7 @@
                   <Font name="System Bold Italic" size="25.0" />
                </font>
             </Label>
-            <Button fx:id="btnSubmitBooking" layoutX="391.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#onSubmitBtnClicked" style="-fx-background-color: #735e01;" text="Aceptar" textFill="WHITE">
+            <Button fx:id="btnSubmitBooking" layoutX="391.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#BtnSubmitBooking" style="-fx-background-color: #735e01;" text="Aceptar" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
@@ -112,171 +110,151 @@
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCheckIn" layoutX="271.0" layoutY="128.0" promptText="Ingrese día de llegada" style="-fx-background-color: #735e01;">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </TextField>
             <ComboBox fx:id="comboBoxType" layoutX="271.0" layoutY="86.0" prefWidth="150.0" style="-fx-background-color: #735e01;" />
+            <DatePicker fx:id="dateCheckIn" layoutX="272.0" layoutY="131.0" style="-fx-background-color: #735e01;" />
+            <DatePicker fx:id="dateCheckOut" layoutX="272.0" layoutY="176.0" style="-fx-background-color: #735e01;" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="panelRoom" layoutX="10.0" layoutY="117.0" prefHeight="331.0" prefWidth="541.0" style="-fx-background-color: #292e2a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="panelRoom" layoutY="107.0" prefHeight="331.0" prefWidth="541.0" style="-fx-background-color: #292e2a;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField fx:id="txtCheckOut1" layoutX="271.0" layoutY="173.0" promptText="Ingrese día de salida" style="-fx-background-color: #735e01;">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="txtDni1" layoutX="271.0" layoutY="219.0" promptText="Ingrese su DNI" style="-fx-background-color: #735e01;">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </TextField>
-            <Separator layoutX="327.0" layoutY="263.0" opacity="0.37" prefWidth="200.0" />
-            <Separator layoutX="171.0" layoutY="57.0" opacity="0.37" prefWidth="200.0" />
-            <Label layoutX="220.0" layoutY="14.0" text="Reservar" textFill="#f5f5f5">
+            <Label layoutX="194.0" layoutY="2.0" text="Habitaciones" textFill="#eee9e9">
                <font>
                   <Font name="System Bold Italic" size="25.0" />
                </font>
             </Label>
-            <Button fx:id="btnSubmitBooking1" layoutX="391.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#onSubmitBtnClicked" style="-fx-background-color: #735e01;" text="Aceptar" textFill="WHITE">
+            <ImageView fx:id="imgBates" fitHeight="232.0" fitWidth="320.0" layoutX="176.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@rooms/batesMotel.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="171.0" layoutY="37.0" opacity="0.46" prefWidth="200.0" />
+            <Button fx:id="btnSingle" layoutX="36.0" layoutY="52.0" mnemonicParsing="false" onMouseClicked="#displayImageSingle" style="-fx-background-color: #735e01;" text="Single" textFill="#f5f5f5">
                <font>
-                  <Font name="System Bold Italic" size="14.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
             </Button>
-            <Label layoutX="64.0" layoutY="128.0" text="Check In" textFill="WHITE">
+            <Button fx:id="btnSingle4" layoutX="41.0" layoutY="101.0" mnemonicParsing="false" onMouseClicked="#displayImageTwin" style="-fx-background-color: #735e01;" text="Twin" textFill="#f5f5f5">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
-            </Label>
-            <Label layoutX="64.0" layoutY="173.0" text="Check Out" textFill="WHITE">
+            </Button>
+            <Button fx:id="btnSingle3" layoutX="14.0" layoutY="151.0" mnemonicParsing="false" onMouseClicked="#displayImageMatrimonial" style="-fx-background-color: #735e01;" text="Matrimonial" textFill="#f5f5f5">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
-            </Label>
-            <Label layoutX="64.0" layoutY="83.0" text="Tipo de habitación" textFill="WHITE">
+            </Button>
+            <Button fx:id="btnSingle2" layoutX="38.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#displayImageTriple" style="-fx-background-color: #735e01;" text="Triple" textFill="#f5f5f5">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
-            </Label>
-            <Label layoutX="64.0" layoutY="219.0" text="DNI" textFill="WHITE">
+            </Button>
+            <Button fx:id="btnSingle1" layoutX="39.0" layoutY="251.0" mnemonicParsing="false" onMouseClicked="#displayImageQuad" style="-fx-background-color: #735e01;" text="Quad" textFill="#f5f5f5">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
-            </Label>
-            <TextField fx:id="txtCheckIn1" layoutX="271.0" layoutY="128.0" promptText="Ingrese día de llegada" style="-fx-background-color: #735e01;">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </TextField>
-            <ComboBox fx:id="comboBoxType1" layoutX="271.0" layoutY="86.0" prefWidth="150.0" style="-fx-background-color: #735e01;" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="panelMyBooking" layoutX="10.0" layoutY="117.0" prefHeight="331.0" prefWidth="541.0" style="-fx-background-color: #292e2a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            </Button>
+            <ImageView fx:id="imgSingle" fitHeight="240.0" fitWidth="318.0" layoutX="172.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@rooms/singleRoom.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgTwin" fitHeight="240.0" fitWidth="318.0" layoutX="172.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@rooms/twinRoom.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgMatrimonial" fitHeight="218.0" fitWidth="318.0" layoutX="172.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@rooms/matrimonialRoom.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgTriple" fitHeight="240.0" fitWidth="318.0" layoutX="171.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@rooms/tripleRoom.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgQuad" fitHeight="240.0" fitWidth="318.0" layoutX="171.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@rooms/quadRoom.png" />
+               </image>
+            </ImageView>
+            <Separator layoutX="137.0" layoutY="72.0" opacity="0.46" orientation="VERTICAL" prefHeight="200.0" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="panelMyBooking" layoutY="107.0" prefHeight="331.0" prefWidth="541.0" style="-fx-background-color: #292e2a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField fx:id="txtCheckOut2" layoutX="271.0" layoutY="173.0" promptText="Ingrese día de salida" style="-fx-background-color: #735e01;">
+            <TextField fx:id="txtDniMyBooking" layoutX="84.0" layoutY="69.0" promptText="Ingrese su DNI " style="-fx-background-color: #735e01;">
                <font>
-                  <Font name="System Italic" size="14.0" />
+                  <Font name="System Bold Italic" size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="txtDni2" layoutX="271.0" layoutY="219.0" promptText="Ingrese su DNI" style="-fx-background-color: #735e01;">
+            <Button fx:id="btnSubmitMyBooking" layoutX="345.0" layoutY="68.0" mnemonicParsing="false" style="-fx-background-color: #735e01;" text="Enviar" textFill="#f5f4f4">
                <font>
-                  <Font name="System Italic" size="14.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
-            </TextField>
-            <Separator layoutX="327.0" layoutY="263.0" opacity="0.37" prefWidth="200.0" />
-            <Separator layoutX="171.0" layoutY="57.0" opacity="0.37" prefWidth="200.0" />
-            <Label layoutX="220.0" layoutY="14.0" text="Reservar" textFill="#f5f5f5">
+            </Button>
+            <Label layoutX="210.0" layoutY="14.0" text="Mi reserva" textFill="#f2f2f2">
                <font>
                   <Font name="System Bold Italic" size="25.0" />
                </font>
             </Label>
-            <Button fx:id="btnSubmitBooking2" layoutX="391.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#onSubmitBtnClicked" style="-fx-background-color: #735e01;" text="Aceptar" textFill="WHITE">
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Button>
-            <Label layoutX="64.0" layoutY="128.0" text="Check In" textFill="WHITE">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="64.0" layoutY="173.0" text="Check Out" textFill="WHITE">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="64.0" layoutY="83.0" text="Tipo de habitación" textFill="WHITE">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="64.0" layoutY="219.0" text="DNI" textFill="WHITE">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtCheckIn2" layoutX="271.0" layoutY="128.0" promptText="Ingrese día de llegada" style="-fx-background-color: #735e01;">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </TextField>
-            <ComboBox fx:id="comboBoxType2" layoutX="271.0" layoutY="86.0" prefWidth="150.0" style="-fx-background-color: #735e01;" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="panelRoomService" layoutX="10.0" layoutY="117.0" prefHeight="331.0" prefWidth="541.0" style="-fx-background-color: #292e2a;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <Separator layoutX="177.0" layoutY="50.0" opacity="0.46" prefWidth="200.0" />
+            <Separator layoutX="171.0" layoutY="113.0" opacity="0.46" prefWidth="200.0" />
+            <ListView fx:id="listViewBooking" layoutX="77.0" layoutY="113.0" prefHeight="200.0" prefWidth="360.0" style="-fx-background-color: #735e01;" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="panelRoomService" layoutX="10.0" layoutY="117.0" prefHeight="331.0" prefWidth="541.0" style="-fx-background-color: #292e2a;" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField fx:id="txtCheckOut3" layoutX="271.0" layoutY="173.0" promptText="Ingrese día de salida" style="-fx-background-color: #735e01;">
+            <RadioButton fx:id="radioBtnChampagne" layoutX="72.0" layoutY="60.0" mnemonicParsing="false" text="Champagne" textFill="#735e01">
                <font>
-                  <Font name="System Italic" size="14.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
-            </TextField>
-            <TextField fx:id="txtDni3" layoutX="271.0" layoutY="219.0" promptText="Ingrese su DNI" style="-fx-background-color: #735e01;">
+            </RadioButton>
+            <RadioButton fx:id="radioBtnPizza" layoutX="72.0" layoutY="112.0" mnemonicParsing="false" text="Pizza" textFill="#735e01">
                <font>
-                  <Font name="System Italic" size="14.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
-            </TextField>
-            <Separator layoutX="327.0" layoutY="263.0" opacity="0.37" prefWidth="200.0" />
-            <Separator layoutX="171.0" layoutY="57.0" opacity="0.37" prefWidth="200.0" />
-            <Label layoutX="220.0" layoutY="14.0" text="Reservar" textFill="#f5f5f5">
+            </RadioButton>
+            <RadioButton fx:id="radioBtnSoda" layoutX="72.0" layoutY="166.0" mnemonicParsing="false" text="Soda" textFill="#735e01">
                <font>
-                  <Font name="System Bold Italic" size="25.0" />
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="radioBtnMassage" layoutX="72.0" layoutY="221.0" mnemonicParsing="false" text="Masaje" textFill="#735e01">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </RadioButton>
+            <Separator layoutX="215.0" layoutY="72.0" opacity="0.24" prefHeight="3.0" prefWidth="176.0" />
+            <Separator layoutX="215.0" layoutY="124.0" opacity="0.24" prefHeight="3.0" prefWidth="176.0" />
+            <Separator layoutX="215.0" layoutY="178.0" opacity="0.24" prefHeight="3.0" prefWidth="176.0" />
+            <Separator layoutX="215.0" layoutY="233.0" opacity="0.24" prefHeight="3.0" prefWidth="176.0" />
+            <Label layoutX="421.0" layoutY="60.0" text="\$30" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnSubmitBooking3" layoutX="391.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#onSubmitBtnClicked" style="-fx-background-color: #735e01;" text="Aceptar" textFill="WHITE">
+            <Label layoutX="420.0" layoutY="111.0" text="\$12" textFill="#fcfcfc">
                <font>
-                  <Font name="System Bold Italic" size="14.0" />
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="420.0" layoutY="166.0" text="\$10" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="421.0" layoutY="220.0" text="\$49" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Separator layoutX="348.0" layoutY="271.0" opacity="0.24" prefHeight="3.0" prefWidth="176.0" />
+            <Button fx:id="btnSubmitRoomService" layoutX="410.0" layoutY="283.0" mnemonicParsing="false" onMouseClicked="#BtnSubmitRoomService" style="-fx-background-color: #735e01;" text="Enviar" textFill="#f5f4f4">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
             </Button>
-            <Label layoutX="64.0" layoutY="128.0" text="Check In" textFill="WHITE">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="64.0" layoutY="173.0" text="Check Out" textFill="WHITE">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="64.0" layoutY="83.0" text="Tipo de habitación" textFill="WHITE">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="64.0" layoutY="219.0" text="DNI" textFill="WHITE">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtCheckIn3" layoutX="271.0" layoutY="128.0" promptText="Ingrese día de llegada" style="-fx-background-color: #735e01;">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </TextField>
-            <ComboBox fx:id="comboBoxType3" layoutX="271.0" layoutY="86.0" prefWidth="150.0" style="-fx-background-color: #735e01;" />
-         </children>
-      </AnchorPane>
-      <ImageView fx:id="arrowBooking" fitHeight="25.0" fitWidth="30.0" layoutX="53.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+         </children></AnchorPane>
+      <ImageView fx:id="arrowBooking" fitHeight="25.0" fitWidth="30.0" layoutX="53.0" layoutY="89.0" onMouseClicked="#onBookingBtnClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/iconArrow.png" />
          </image>

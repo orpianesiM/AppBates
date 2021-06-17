@@ -1,0 +1,26 @@
+[
+  {
+    "origin": "Chaco",
+    "originAddress": "Buenos aires",
+    "history": [],
+    "name": "Mercedez",
+    "lastName": "Sosa",
+    "dni": "1256324",
+    "email": "mercedita@gmail.com",
+    "user": "merced",
+    "password": "123",
+    "phoneNumber": 52363648
+  },
+  {
+    "origin": "Mar del Plata",
+    "originAddress": "J.B.Justo 220",
+    "history": [],
+    "name": "mmar",
+    "lastName": "123",
+    "dni": "39834705",
+    "email": "orpianesi.mar@gmail.com",
+    "user": "mmar",
+    "password": "123",
+    "phoneNumber": 2236087161
+  }
+]
